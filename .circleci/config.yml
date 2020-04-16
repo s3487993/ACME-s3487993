@@ -1,18 +1,21 @@
 version: 2.1
+
 commands:
-  install_deps: # Name of command for installing dependencies along with cache restore/save function
+
+  install_deps: 
     steps:
-      - restore_cache: # This step will try and attempt to restore dependency cache
-          key: node-cache-{{ checksum "src/package.json" }} # I use checksum of json because if theres change in package.json then it will automatically reinstall the package.
+      - restore_cache: 
+          key: node-cache-{{ checksum "src/package.json" }}
       - run:
           name: Install dependencies
-          command: | # These command here will install dependency modules from package.json
+          command: |
             cd src/
             npm install
-      - save_cache: # This step here will save the installed dependencies to a cache
-          key: node-cache-{{ checksum "src/package.json" }} # Using this key in restore_cache will retrieve this cache
+      - save_cache:
+          key: node-cache-{{ checksum "src/package.json" }}
           paths:
             - src/node_modules
+            
 jobs:
   build:
     docker:
