@@ -15,7 +15,15 @@ commands:
           key: node-cache-{{ checksum "src/package.json" }}
           paths:
             - src/node_modules
-  
+
+  run_eslint:
+    steps:
+      - run:
+          name: Run Eslint
+          command: |
+            cd src
+            npm run test-lint
+
   unit_test:
     steps:
       - run:
@@ -49,6 +57,7 @@ jobs:
       - install_deps
       - unit_test
       - cc_report
+      - run_eslint
   
 
 workflows:
