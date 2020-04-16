@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="0.4500" tests="3" failures="0">
+  <testsuite name="Root Suite" timestamp="2020-04-16T14:21:50" tests="0" time="0.0000" failures="0">
+  </testsuite>
+  <testsuite name="models/index" timestamp="2020-04-16T14:21:50" tests="2" file="C:\Users\tien_\Desktop\ACME-s3487993\src\test\unit\index.test.js" time="0.4400" failures="0">
+    <testcase name="models/index returns the task model" time="0.4400" classname="returns the task model">
+    </testcase>
+    <testcase name="models/index returns the user model" time="0.0000" classname="returns the user model">
+    </testcase>
+  </testsuite>
+  <testsuite name="models/task" timestamp="2020-04-16T14:21:50" tests="0" file="C:\Users\tien_\Desktop\ACME-s3487993\src\test\unit\task.test.js" time="0.0000" failures="0">
+  </testsuite>
+  <testsuite name="create" timestamp="2020-04-16T14:21:50" tests="1" file="C:\Users\tien_\Desktop\ACME-s3487993\src\test\unit\task.test.js" time="0.0100" failures="0">
+    <testcase name="models/task create creates a task" time="0.0100" classname="creates a task">
+    </testcase>
+  </testsuite>
+</testsuites>

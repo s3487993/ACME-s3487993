@@ -1,14 +1,67 @@
 version: 2.1
+
+commands:
+
+  install_deps: 
+    steps:
+      - restore_cache: 
+          key: node-cache-{{ checksum "src/package.json" }}
+      - run:
+          name: Install dependencies
+          command: |
+            cd src/
+            npm install
+      - save_cache:
+          key: node-cache-{{ checksum "src/package.json" }}
+          paths:
+            - src/node_modules
+
+  run_eslint:
+    steps:
+      - run:
+          name: Run Eslint
+          command: |
+            cd src
+            npm run test-lint
+
+  unit_test:
+    steps:
+      - run:
+          name: Unit Testing
+          environment:
+            MOCHA_FILE: mocha-unit-test/test-results.xml
+          command: |
+            cd src
+            mkdir -p mocha-unit-test
+            npm run test-unit
+      - store_test_results: 
+          path: src/mocha-unit-test
+
+  cc_report:
+    steps:
+      - run:
+          name: Collect Code Coverage Reports
+          command: |
+            cd src/
+            npm run test-coverage
+            bash <(curl -s https://codecov.io/bash)
+
+          
 jobs:
-  build:
+  ci-build:
     docker:
       - image: circleci/node:lts
 
     steps:
       - checkout
+      - install_deps
+      - run_eslint
+      - unit_test
+      - cc_report
+  
 
 workflows:
   version: 2
   build-test-package:
     jobs:
-      - build
+      - ci-build
