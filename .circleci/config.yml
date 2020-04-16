@@ -3,7 +3,7 @@ commands:
   install_deps: # Name of command for installing dependencies along with cache restore/save function
     steps:
       - restore_cache: # This step will try and attempt to restore dependency cache
-          ke y: node-cache-{{ checksum "src/package.json" }} # I use checksum of json because if theres change in package.json then it will automatically reinstall the package.
+          key: node-cache-{{ checksum "src/package.json" }} # I use checksum of json because if theres change in package.json then it will automatically reinstall the package.
       - run:
           name: Install dependencies
           command: | # These command here will install dependency modules from package.json
