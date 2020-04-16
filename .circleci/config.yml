@@ -19,10 +19,10 @@ commands:
   unit_test:
     steps:
       - run:
-        name: Unit Testing
-        command: |
-          cd src
-          npm run test-unit
+          name: Unit Testing
+          command: |
+            cd src
+            npm run test-unit
 
             
 jobs:
