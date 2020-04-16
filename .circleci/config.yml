@@ -47,21 +47,22 @@ jobs:
       - checkout
       - install_deps
       - unit_test
-  
-  code-coverage-report:
-    docker:
-      - image: circleci/node:lts
-
-    steps:
-      - checkout
-      - install_deps
       - cc_report
+  
+#  code-coverage-report:
+#    docker:
+#      - image: circleci/node:lts
+#
+#    steps:
+#      - checkout
+#      - install_deps
+#      - cc_report
 
 workflows:
   version: 2
   build-test-package:
     jobs:
       - ci-build
-      - code-coverage-report:
-          requires:
-            - ci-build
+#      - code-coverage-report:
+#          requires:
+#            - ci-build
