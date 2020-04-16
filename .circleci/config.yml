@@ -1,7 +1,7 @@
 version: 2.1
 commands:
   install_deps:
-    step:
+    steps:
       - run:
           name: Install Dependencies
           commands: |
