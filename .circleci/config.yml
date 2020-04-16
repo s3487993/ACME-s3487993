@@ -4,7 +4,7 @@ commands:
     steps:
       - run:
           name: Install Dependencies
-          commands: |
+          command: |
             cd src
             npm install
 jobs:
