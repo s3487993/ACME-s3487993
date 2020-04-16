@@ -1,4 +1,11 @@
 version: 2.1
+commands:
+  install_deps:
+    step:
+      - run:
+          name: Install Dependencies
+          commands: |
+            npm install
 jobs:
   build:
     docker:
@@ -6,6 +13,7 @@ jobs:
 
     steps:
       - checkout
+      - install_deps
 
 workflows:
   version: 2
