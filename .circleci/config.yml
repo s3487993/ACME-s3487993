@@ -29,7 +29,15 @@ commands:
       - store_test_results: 
           path: src/mocha-unit-test
 
-            
+  cc_report:
+    steps:
+      - run:
+          name: Collect Code Coverage Reports
+          command: |
+            cd src/
+            npm run test-coverage
+
+          
 jobs:
   ci-build:
     docker:
@@ -39,9 +47,21 @@ jobs:
       - checkout
       - install_deps
       - unit_test
+  
+  code-coverage-report:
+    docker:
+      - image: circleci/node:lts
+
+    steps:
+      - checkout
+      - install_deps
+      - cc-report
 
 workflows:
   version: 2
   build-test-package:
     jobs:
       - ci-build
+      - code-coverage-report:
+          requires:
+            - ci-build
