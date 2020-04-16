@@ -15,6 +15,15 @@ commands:
           key: node-cache-{{ checksum "src/package.json" }}
           paths:
             - src/node_modules
+  
+  unit_test:
+    steps:
+      - run:
+        name: Unit Testing
+        command: |
+          cd src
+          npm run test-unit
+
             
 jobs:
   build:
@@ -24,6 +33,7 @@ jobs:
     steps:
       - checkout
       - install_deps
+      - unit_test
 
 workflows:
   version: 2
