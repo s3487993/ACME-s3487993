@@ -55,7 +55,7 @@ jobs:
     steps:
       - checkout
       - install_deps
-      - cc-report
+      - cc_report
 
 workflows:
   version: 2
