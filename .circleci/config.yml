@@ -20,9 +20,14 @@ commands:
     steps:
       - run:
           name: Unit Testing
+          environment:
+            MOCHA_FILE: mocha-unit-test/test-results.xml
           command: |
             cd src
+            mkdir -p mocha-unit-test
             npm run test-unit
+      - store_test_results: # This step here will upload the test results to circleci
+          path: src/mocha-test
 
             
 jobs:
