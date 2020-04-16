@@ -55,9 +55,9 @@ jobs:
     steps:
       - checkout
       - install_deps
+      - run_eslint
       - unit_test
       - cc_report
-      - run_eslint
   
 
 workflows:
