@@ -44,4 +44,4 @@ workflows:
   version: 2
   build-test-package:
     jobs:
-      - build
+      - ci-build
