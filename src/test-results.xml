@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="0.6360" tests="3" failures="0">
+  <testsuite name="Root Suite" timestamp="2020-04-16T13:31:58" tests="0" time="0.0000" failures="0">
+  </testsuite>
+  <testsuite name="user creation page" timestamp="2020-04-16T13:31:58" tests="3" file="C:\Users\tien_\Desktop\ACME-s3487993\src\test\integration\user-creation.test.js" time="0.6360" failures="0">
+    <testcase name="user creation page loads correctly" time="0.5550" classname="loads correctly">
+    </testcase>
+    <testcase name="user creation page lists a user if there is one" time="0.0480" classname="lists a user if there is one">
+    </testcase>
+    <testcase name="user creation page lists the tickets for the user if available" time="0.0330" classname="lists the tickets for the user if available">
+    </testcase>
+  </testsuite>
+</testsuites>
