@@ -5,6 +5,7 @@ commands:
       - run:
           name: Install Dependencies
           commands: |
+            cd src
             npm install
 jobs:
   build:
